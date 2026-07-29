@@ -10,11 +10,11 @@ RUN apt-get update && \
 # Create folders for Spark Jars
 RUN mkdir -p /opt/spark/jars
 
-# Download Postgres JDBC Driver Jar
-RUN wget https://postgresql.org -O /opt/spark/jars/postgresql-42.6.0.jar
-RUN chmod 644 /opt/spark/jars/postgresql-42.6.0.jar
+# Download Postgres JDBC Driver Jar from official binary repository
+RUN wget https://postgresql.org -O /opt/spark/jars/postgresql-42.6.0.jar && \
+    chmod 644 /opt/spark/jars/postgresql-42.6.0.jar
 
 USER airflow
 
-# Install Python packages
-RUN pip install pyspark==3.4.1 kaggle
+# Install Python packages without leaving bulk cache layers
+RUN pip install --no-cache-dir pyspark==3.4.1 kaggle

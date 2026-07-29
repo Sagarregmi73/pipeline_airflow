@@ -1,18 +1,10 @@
-# Credentials and Secrets
 .env
 config/kaggle.json
-
-# Airflow Runtime files
+data/*.csv
+data/*.zip
 logs/
 airflow.cfg
 airflow.db
-
-# Docker Data Volumes & Local Storage
 .postgres_data/
-data/*.csv
-data/*.zip
-
-# Spark/Python local artifacts
 __pycache__/
 *.pyc
-.pytest_cache/
